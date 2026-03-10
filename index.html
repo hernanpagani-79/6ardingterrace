@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6 Harding Terrace — Sag Harbor</title>
+<meta name="description" content="6 Harding Terrace — A luxury new-construction residence in Sag Harbor, NY. 5 bedrooms, 5.5 baths, 4,400 sq ft. Swimming pool, garage, beach access. Now accepting inquiries.">
+<meta name="keywords" content="Sag Harbor, luxury home, Hamptons real estate, 6 Harding Terrace, new construction">
+<meta property="og:title" content="6 Harding Terrace — Sag Harbor">
+<meta property="og:description" content="A luxury new-construction residence in Sag Harbor, NY. 4,400 sq ft, 5 bedrooms, swimming pool, beach access. Now accepting inquiries.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f0e0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_CAMDRON-2.jpg" type="image/webp">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f0e0c;--charcoal:#131110;--dune:#b0977e;--sand:#ddd0bc;--gold:#c4a052;--white:#faf7f2}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--sand);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+
+/* ══ OPENING ══ */
+#opening{position:fixed;inset:0;z-index:800;overflow:hidden;display:flex;align-items:flex-end;transition:opacity 1.2s ease}
+#opening.exit{opacity:0;pointer-events:none}
+.op-bg{position:absolute;inset:0;background-size:cover;background-position:center;animation:slowZoom 16s ease-out forwards}
+@keyframes slowZoom{from{transform:scale(1.07)}to{transform:scale(1.0)}}
+.op-vignette{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,9,8,0.94) 0%,rgba(10,9,8,0.08) 55%,transparent 78%)}
+.op-content{position:relative;z-index:2;padding:0 72px 80px;opacity:0;animation:riseIn 1.6s 1.4s ease forwards}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.op-eyebrow{font-size:0.5rem;letter-spacing:0.46em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;display:flex;align-items:center;gap:16px}
+.op-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.op-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(2.6rem,4.5vw,5rem);color:var(--white);line-height:1.08;margin-bottom:56px;max-width:600px}
+.enter-btn{display:inline-flex;align-items:center;gap:18px;background:none;border:1px solid rgba(196,160,82,0.38);color:var(--gold);font-family:'Jost',sans-serif;font-size:0.54rem;letter-spacing:0.36em;text-transform:uppercase;padding:16px 34px;cursor:pointer;transition:all 0.5s ease}
+.enter-btn:hover{background:rgba(196,160,82,0.06);border-color:var(--gold);gap:26px}
+.enter-btn svg{animation:arrowPulse 2.2s ease-in-out infinite}
+@keyframes arrowPulse{
+  0%,100%{transform:translateX(0);opacity:1}
+  50%{transform:translateX(5px);opacity:0.6}
+}
+#veil{position:fixed;inset:0;z-index:700;background:var(--ink);opacity:0;pointer-events:none;transition:opacity 0.6s ease}
+#veil.show{opacity:1}
+
+/* ══ SIDENAV ══ */
+#sidenav{position:fixed;right:36px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:12px;align-items:center;opacity:0;pointer-events:none;transition:opacity 0.7s ease}
+#sidenav.visible{opacity:1;pointer-events:all}
+.nav-dot{width:4px;height:4px;border-radius:50%;border:1px solid rgba(196,160,82,0.28);background:transparent;cursor:pointer;transition:all 0.35s ease;padding:0;position:relative}
+.nav-dot:hover{border-color:rgba(196,160,82,0.65);transform:scale(1.4)}
+.nav-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.2)}
+.nav-dot-tip{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(10,9,8,0.95);border:1px solid rgba(196,160,82,0.12);padding:5px 11px;white-space:nowrap;font-family:'Jost',sans-serif;font-size:0.44rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0;pointer-events:none;transition:opacity 0.22s}
+.nav-dot:hover .nav-dot-tip{opacity:1}
+
+.scroll-hint{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:200;text-align:center;pointer-events:none;opacity:0;transition:opacity 0.7s;animation:bounceY 2.6s ease-in-out infinite}
+.scroll-hint.visible{opacity:1}
+@keyframes bounceY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
+.scroll-hint span{display:block;font-size:0.43rem;letter-spacing:0.32em;text-transform:uppercase;color:rgba(176,151,126,0.28);margin-bottom:7px}
+
+/* ══ MAIN ══ */
+#main-content{opacity:0;pointer-events:none;transition:opacity 0.7s ease}
+#main-content.visible{opacity:1;pointer-events:all}
+
+/* ── INTERIOR SCENES ── */
+.sec-scene{
+  display:grid;
+  grid-template-columns:50fr 50fr;
+  min-height:100vh;
+  background:var(--ink);
+  padding:0 48px;
+}
+.sec-scene.reverse{
+  grid-template-columns:50fr 50fr;
+}
+.sec-scene.reverse .scene-img{ order:2; }
+.sec-scene.reverse .scene-text{ order:1; }
+
+/* image side */
+.scene-img{
+  position:relative;
+  line-height:0;
+  padding:24px 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.scene-img img{
+  width:100%;height:auto;
+  display:block;
+  filter:brightness(0.97) saturate(1.03);
+}
+/* veil desde el lado del texto */
+.scene-img::after{
+  content:'';
+  position:absolute;
+  top:0;bottom:0;
+  width:35%;
+  pointer-events:none;
+}
+/* imagen izquierda → texto a la derecha → veil en borde derecho, oscurece hacia la derecha */
+.sec-scene:not(.reverse) .scene-img::after{
+  right:0;
+  background:linear-gradient(to right, transparent, rgba(15,14,12,0.6));
+}
+/* imagen derecha (.reverse) → texto a la izquierda → veil en borde izquierdo, oscurece hacia la izquierda */
+.sec-scene.reverse .scene-img::after{
+  left:0;
+  background:linear-gradient(to left, transparent, rgba(15,14,12,0.6));
+}
+
+/* text side — centered vertically in black space */
+.scene-text{
+  display:flex;
+  align-items:center;
+  padding:80px 72px;
+  opacity:0;transform:translateX(24px);
+  transition:opacity 1.1s ease, transform 1.1s ease;
+}
+.sec-scene.reverse .scene-text{
+  transform:translateX(-24px);
+}
+.sec-scene.in-view .scene-text{
+  opacity:1;transform:translateX(0);
+}
+.scene-inner{ max-width:340px; }
+.scene-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:7rem;font-weight:300;line-height:1;
+  color:rgba(196,160,82,0.07);
+  display:block;margin-bottom:-22px;margin-left:-6px;
+  user-select:none;
+}
+.scene-label{
+  font-size:0.44rem;letter-spacing:0.42em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+  opacity:0;
+  letter-spacing:1.2em;
+  transition:opacity 1.8s ease 0.3s, letter-spacing 2.4s cubic-bezier(0.16,1,0.3,1) 0.3s;
+}
+.sec-scene.in-view .scene-label,
+.sec-dual.in-view .scene-label{
+  opacity:1;
+  letter-spacing:0.42em;
+}
+.scene-label-line{width:16px;height:1px;background:var(--gold);flex-shrink:0}
+.scene-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,3.2vw,4rem);font-weight:300;
+  color:var(--white);line-height:0.92;margin-bottom:20px;
+}
+.scene-title em{font-style:italic;color:var(--sand);display:block}
+.scene-rule{width:20px;height:1px;background:rgba(196,160,82,0.28);margin-bottom:20px}
+.scene-text-body{
+  font-size:0.8rem;line-height:2.2;
+  color:rgba(250,247,242,0.72);
+  font-style:italic;letter-spacing:0.02em;
+}
+
+/* ── HERO SCENES — casi fullscreen, texto superpuesto ── */
+.sec-hero{
+  position:relative;
+  height:92vh;
+  min-height:640px;
+  overflow:hidden;
+  background:var(--ink);
+  margin:0 32px;
+}
+.hero-img{
+  position:absolute;inset:0;
+  line-height:0;
+}
+.hero-img img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  filter:brightness(0.88) saturate(1.04);
+  display:block;
+}
+/* veil — heavy at bottom left for text, fades up */
+.hero-veil{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to top, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.52) 28%, rgba(10,9,8,0.04) 55%, transparent 70%),
+    linear-gradient(to right, rgba(10,9,8,0.32) 0%, transparent 50%);
+  z-index:1;
+}
+.sec-hero.text-right .hero-veil{
+  background:
+    linear-gradient(to top, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.52) 28%, rgba(10,9,8,0.04) 55%, transparent 70%),
+    linear-gradient(to left, rgba(10,9,8,0.32) 0%, transparent 50%);
+}
+/* text block — pinned bottom left */
+.hero-content{
+  position:absolute;
+  bottom:0;left:0;
+  z-index:2;
+  padding:0 72px 64px;
+  max-width:560px;
+  opacity:0;transform:translateY(20px);
+  transition:opacity 1.2s ease, transform 1.2s ease;
+}
+.sec-hero.text-right .hero-content{
+  left:auto;right:0;
+  text-align:right;
+}
+.sec-hero.in-view .hero-content{
+  opacity:1;transform:translateY(0);
+}
+.hero-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:9rem;font-weight:300;line-height:1;
+  color:rgba(196,160,82,0.07);
+  display:block;margin-bottom:-28px;margin-left:-6px;
+  user-select:none;
+}
+.sec-hero.text-right .hero-num{ margin-left:0;margin-right:-6px; }
+.hero-label{
+  font-size:0.44rem;letter-spacing:0.44em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-hero.text-right .hero-label{ flex-direction:row-reverse; }
+.hero-label-line{width:16px;height:1px;background:var(--gold);flex-shrink:0}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,4.5vw,5.5rem);font-weight:300;
+  color:var(--white);line-height:0.9;margin-bottom:20px;
+}
+.hero-title em{font-style:italic;color:var(--sand);display:block}
+.hero-rule{width:22px;height:1px;background:rgba(196,160,82,0.3);margin-bottom:18px}
+.sec-hero.text-right .hero-rule{ margin-left:auto; }
+.hero-text{
+  font-size:0.78rem;line-height:2.1;
+  color:rgba(250,247,242,0.78);
+  font-style:italic;letter-spacing:0.02em;
+}
+
+@media(max-width:768px){
+  .sec-hero{ height:80vh;margin:0 12px; }
+  .hero-content{ padding:0 28px 48px;max-width:100%; }
+  .hero-num{ font-size:5rem; }
+  .hero-title{ font-size:clamp(2.4rem,9vw,3.4rem); }
+  .sec-hero.text-right .hero-content{ left:0;right:0;text-align:left; }
+  .sec-hero.text-right .hero-label{ flex-direction:row; }
+  .sec-hero.text-right .hero-rule{ margin-left:0; }
+  .sec-hero.text-right .hero-num{ margin-left:-6px; }
+}
+
+/* ── DUAL IMAGE ROW ── */
+
+.sec-dual{
+  display:grid;
+  grid-template-columns:42fr 28fr 30fr;
+  min-height:100vh;
+  background:var(--ink);
+  padding:0 48px;
+  align-items:center;
+  gap:0;
+}
+.dual-img-main{
+  padding:48px 0;
+  line-height:0;
+}
+.dual-img-main img{
+  width:100%;height:auto;display:block;
+  filter:brightness(0.97) saturate(1.03);
+}
+.dual-img-small{
+  padding:80px 32px;
+  line-height:0;
+}
+.dual-img-small img{
+  width:100%;height:auto;display:block;
+  filter:brightness(0.97) saturate(1.03);
+  box-shadow:0 32px 80px rgba(0,0,0,0.5);
+}
+.dual-text{
+  display:flex;
+  align-items:center;
+  padding:48px 48px 48px 40px;
+  opacity:0;transform:translateX(24px);
+  transition:opacity 1.1s ease, transform 1.1s ease;
+}
+.sec-dual.in-view .dual-text{
+  opacity:1;transform:translateX(0);
+}
+.dual-inner{ max-width:280px; }
+
+@media(max-width:768px){
+  .sec-dual{grid-template-columns:1fr;min-height:auto;padding:0}
+  .dual-img-main{padding:0;height:100vw;overflow:hidden}
+  .dual-img-main img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .dual-img-small{padding:4px 0 0;height:72vw;overflow:hidden}
+  .dual-img-small img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .dual-text{padding:40px 24px 48px;transform:none!important}
+  .sec-dual.in-view .dual-text{opacity:1;transform:none}
+}
+.sec-atmo{margin:16px;border-radius:3px}
+.atmo-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 2.4s ease;
+}
+.atmo-slide.active{opacity:1}
+.sa-veil{display:none}
+.sa-bg{display:none}
+
+@media(max-width:768px){
+  .sec-scene{grid-template-columns:1fr!important;padding:0!important;position:relative}
+  .sec-scene .scene-img{order:1!important;overflow:hidden;position:relative;margin:0;width:100vw;height:100svh;max-height:700px}
+  .sec-scene .scene-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+  .sec-scene .scene-img::after{
+    display:block;position:absolute;inset:0;
+    background:linear-gradient(to top, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.6) 40%, transparent 70%) !important;
+  }
+  .sec-scene .scene-text{
+    order:2!important;
+    position:absolute;bottom:0;left:0;right:0;
+    padding:0 28px 48px;
+    transform:none!important;
+    background:transparent;
+    z-index:2;
+  }
+  .sec-scene.in-view .scene-text{opacity:1;transform:none}
+  .scene-num{font-size:3.5rem}
+  .scene-title{font-size:clamp(2.2rem,9vw,3rem)}
+  .scene-text-body{font-size:0.76rem;line-height:1.9}
+  .gallery-title{font-size:clamp(1.4rem,6vw,1.9rem)}
+}
+
+/* ══ ATMOSPHERE SLIDE SECTION ══ */
+/* Three layered images that crossfade */
+.sec-atmo{
+  position:relative;height:calc(100vh - 32px);min-height:600px;overflow:hidden;
+  display:flex;align-items:flex-end;justify-content:flex-end;
+  margin:16px;border-radius:3px;
+}
+/* desktop: facade images, mobile fallbacks */
+.atmo-slide.day-mobile{ display:none; }
+.atmo-slide.evening-mobile{ display:none; }
+@media(max-width:768px){
+  .atmo-slide.day{ display:none !important; }
+  .atmo-slide.day-mobile{ display:block; }
+  .atmo-slide.evening{ display:none !important; }
+  .atmo-slide.evening-mobile{ display:block; }
+}
+/* veil follows text side */
+.atmo-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,9,8,0.92) 0%,rgba(10,9,8,0.6) 28%,rgba(10,9,8,0.08) 52%,transparent 68%);z-index:1}
+
+.atmo-content{
+  position:relative;z-index:2;padding:0 80px 64px;max-width:420px;
+  opacity:0;transition:opacity 1s ease,transform 1s ease;transform:translateX(18px);
+  text-align:right;
+}
+.sec-atmo.in-view .atmo-content{opacity:1;transform:translateX(0)}
+.atmo-num{font-family:'Cormorant Garamond',serif;font-size:11rem;font-weight:300;line-height:1;color:rgba(196,160,82,0.07);display:block;margin-right:-8px;user-select:none;text-align:right}
+.atmo-label-row{font-size:0.48rem;letter-spacing:0.44em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:11px;flex-direction:row-reverse}
+.atmo-label-line{width:18px;height:1px;background:var(--gold);flex-shrink:0}
+.atmo-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4vw,4.8rem);font-weight:300;color:var(--white);line-height:0.9;margin-bottom:26px;text-align:right}
+.atmo-title em{font-style:italic;color:var(--gold);display:block}
+.atmo-rule{width:22px;height:1px;background:rgba(196,160,82,0.3);margin-bottom:22px;margin-left:auto}
+.atmo-text{font-size:0.82rem;line-height:2.2;color:rgba(250,247,242,0.82);font-style:italic;letter-spacing:0.02em;text-align:right}
+.atmo-tail{width:1px;height:48px;background:rgba(196,160,82,0.2);margin-top:26px;margin-left:auto}
+
+/* toggle bar */
+.atmo-toggle{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  z-index:10;display:flex;align-items:center;
+  border:1px solid rgba(196,160,82,0.18);
+  background:rgba(10,9,8,0.52);
+  backdrop-filter:blur(10px);
+  opacity:0;transition:opacity 0.7s 0.4s;
+}
+.sec-atmo.in-view .atmo-toggle{opacity:1}
+.atmo-tog-btn{
+  background:none;border:none;
+  font-family:'Jost',sans-serif;font-size:0.46rem;letter-spacing:0.28em;text-transform:uppercase;
+  color:rgba(176,151,126,0.4);padding:12px 24px;cursor:pointer;
+  transition:color 0.3s,background 0.3s;position:relative;
+}
+.atmo-tog-btn+.atmo-tog-btn::before{content:'';position:absolute;left:0;top:25%;height:50%;width:1px;background:rgba(196,160,82,0.12)}
+.atmo-tog-btn:hover{color:var(--sand)}
+.atmo-tog-btn.active{color:var(--gold);background:rgba(196,160,82,0.06)}
+/* caption that changes with atmosphere */
+.atmo-cap{
+  position:absolute;bottom:100px;left:50%;transform:translateX(-50%);
+  z-index:10;
+  font-size:0.44rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:rgba(196,160,82,0.35);
+  white-space:nowrap;
+  opacity:0;transition:opacity 0.5s 0.6s;
+}
+.sec-atmo.in-view .atmo-cap{opacity:1}
+
+/* ── PAUSE ── */
+.sec-pause{
+  min-height:60vh;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  padding:100px 80px;
+  position:relative;overflow:hidden;
+}
+/* subtle background image */
+.sec-pause::before{
+  content:'';position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0.04;
+  filter:grayscale(100%);
+}
+.sec-pause.pause-living::before{ background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM05-2.jpg'); }
+.sec-pause.pause-suite::before{ background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM04-2.jpg'); }
+.sp-inner{
+  max-width:560px;text-align:center;
+  position:relative;z-index:1;
+}
+.sp-rule{
+  width:1px;height:0;
+  background:linear-gradient(to bottom,transparent,rgba(196,160,82,0.4));
+  margin:0 auto 48px;
+  transition:height 1s ease 0.1s;
+}
+.sec-pause.in-view .sp-rule{height:64px}
+.sp-label{
+  font-size:0.46rem;letter-spacing:0.44em;text-transform:uppercase;
+  color:rgba(196,160,82,0.38);margin-bottom:26px;
+  opacity:0;transform:translateY(10px);
+  transition:opacity 0.9s ease 0.4s, transform 0.9s ease 0.4s;
+}
+.sec-pause.in-view .sp-label{opacity:1;transform:translateY(0)}
+.sp-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,5vw,5rem);font-weight:300;
+  color:var(--white);line-height:0.9;margin-bottom:32px;
+  opacity:0;transform:translateY(14px);
+  transition:opacity 1.1s ease 0.6s, transform 1.1s ease 0.6s;
+}
+.sec-pause.in-view .sp-title{opacity:1;transform:translateY(0)}
+.sp-title em{font-style:italic;color:var(--gold);display:block}
+.sp-text{
+  font-size:0.82rem;line-height:2.4;color:rgba(221,208,188,0.65);
+  font-style:italic;letter-spacing:0.03em;
+  opacity:0;transform:translateY(10px);
+  transition:opacity 1s ease 0.9s, transform 1s ease 0.9s;
+}
+.sec-pause.in-view .sp-text{opacity:1;transform:translateY(0)}
+.sp-rule2{
+  width:1px;height:0;
+  background:linear-gradient(to top,transparent,rgba(196,160,82,0.4));
+  margin:48px auto 0;
+  transition:height 1s ease 1.1s;
+}
+.sec-pause.in-view .sp-rule2{height:64px}
+
+
+
+/* ── SILENCE — imagen sola sin texto ── */
+.sec-silence{
+  margin:0 32px;
+  overflow:hidden;
+  line-height:0;
+  position:relative;
+}
+.sec-silence img{
+  width:100%;height:auto;display:block;
+  filter:brightness(0.95) saturate(1.03);
+  opacity:0;
+  transform:scale(1.03);
+  transition:opacity 2s ease, transform 2.8s ease;
+}
+.sec-silence.in-view img{
+  opacity:1;
+  transform:scale(1);
+}
+.silence-coords{
+  position:absolute;
+  bottom:32px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'Jost',sans-serif;
+  font-size:0.46rem;
+  letter-spacing:0.32em;
+  color:rgba(196,160,82,0.45);
+  text-transform:uppercase;
+  white-space:nowrap;
+  opacity:0;
+  transition:opacity 2s ease 1.2s;
+  line-height:1;
+}
+.sec-silence.in-view .silence-coords{
+  opacity:1;
+}
+
+/* ── 360 TOUR ── */
+.sec-360{
+  position:relative;
+  height:80vh;min-height:540px;
+  overflow:hidden;
+  margin:0 32px;
+  border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+}
+.sec-360-bg{
+  position:absolute;inset:0;
+  background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM05-2.jpg');
+  background-size:cover;background-position:center;
+  filter:brightness(0.45) saturate(0.8);
+  transform:scale(1.04);
+  transition:transform 8s ease;
+}
+.sec-360.in-view .sec-360-bg{ transform:scale(1); }
+.sec-360-veil{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at center, transparent 30%, rgba(15,14,12,0.7) 100%);
+  pointer-events:none;
+}
+.sec-360-content{
+  position:relative;z-index:2;
+  text-align:center;
+  opacity:0;transform:translateY(20px);
+  transition:opacity 1.2s ease 0.4s, transform 1.2s ease 0.4s;
+}
+.sec-360.in-view .sec-360-content{ opacity:1;transform:translateY(0); }
+.sec-360-icon{
+  width:72px;height:72px;
+  border-radius:50%;
+  border:1px solid rgba(196,160,82,0.4);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 28px;
+  position:relative;
+}
+.sec-360-icon::before{
+  content:'';position:absolute;inset:-8px;
+  border-radius:50%;
+  border:1px solid rgba(196,160,82,0.12);
+}
+.sec-360-icon svg{ width:28px;height:28px;fill:none;stroke:var(--gold);stroke-width:1.5; }
+.sec-360-label{font-size:0.44rem;letter-spacing:0.44em;text-transform:uppercase;color:rgba(196,160,82,0.7);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
+.sec-360-label-line{width:16px;height:1px;background:rgba(196,160,82,0.4)}
+.sec-360-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,4vw,4.8rem);font-weight:300;
+  color:var(--white);line-height:0.92;margin-bottom:36px;
+}
+.sec-360-title em{ font-style:italic;color:var(--sand);display:block; }
+.sec-360-btn{
+  display:inline-flex;align-items:center;gap:12px;
+  border:1px solid rgba(196,160,82,0.5);
+  color:var(--gold);
+  font-family:'Jost',sans-serif;font-size:0.52rem;letter-spacing:0.34em;text-transform:uppercase;
+  padding:16px 40px;text-decoration:none;
+  transition:all 0.4s ease;cursor:pointer;background:rgba(15,14,12,0.4);
+  backdrop-filter:blur(4px);
+}
+.sec-360-btn:hover{ background:var(--gold);color:var(--ink); }
+.sec-360-note{font-size:0.46rem;letter-spacing:0.14em;color:rgba(250,247,242,0.25);margin-top:18px;font-style:italic}
+
+/* ── LIGHTBOX 360 ── */
+#lightbox-360{
+  position:fixed;inset:0;z-index:900;
+  background:rgba(15,14,12,0.97);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.4s ease;
+}
+#lightbox-360.open{opacity:1;pointer-events:all}
+#lightbox-360 iframe{
+  width:90vw;height:85vh;
+  border:none;
+}
+#lightbox-close{
+  position:absolute;top:28px;right:36px;
+  background:none;border:1px solid rgba(196,160,82,0.3);
+  color:var(--gold);
+  font-family:'Jost',sans-serif;font-size:0.44rem;letter-spacing:0.3em;text-transform:uppercase;
+  padding:10px 20px;cursor:pointer;
+  transition:all 0.3s ease;
+}
+#lightbox-close:hover{background:var(--gold);color:var(--ink)}
+
+/* ── LIGHTBOX IMG (mobile) ── */
+#lightbox-img{
+  position:fixed;inset:0;z-index:950;
+  background:rgba(10,9,8,0.98);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.35s ease;
+}
+#lightbox-img.open{opacity:1;pointer-events:all}
+#lightbox-img img{
+  max-width:100vw;max-height:100vh;
+  object-fit:contain;
+  transform:scale(0.96);
+  transition:transform 0.35s ease;
+}
+#lightbox-img.open img{transform:scale(1)}
+#lightbox-img-close{
+  position:absolute;top:20px;right:20px;
+  background:none;border:none;
+  color:rgba(250,247,242,0.6);
+  font-size:1.6rem;cursor:pointer;
+  padding:8px;line-height:1;
+  transition:color 0.2s ease;
+}
+#lightbox-img-close:hover{color:var(--gold)}
+
+/* ── OVERVIEW ── */
+.sec-overview{
+  background:var(--ink);
+  padding:100px 88px;
+  display:flex;align-items:center;
+  min-height:auto;
+  position:relative;overflow:hidden;
+}
+.sec-overview::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM05-2.jpg');
+  background-size:cover;background-position:center;
+  opacity:0.03;filter:grayscale(100%);
+}
+.ov-inner{width:100%;position:relative;z-index:1}
+.ov-eyebrow{font-size:0.52rem;letter-spacing:0.44em;text-transform:uppercase;color:rgba(196,160,82,0.7);margin-bottom:56px;display:flex;align-items:center;gap:12px}
+.ov-eyebrow::after{content:'';flex:1;height:1px;background:rgba(196,160,82,0.15)}
+.ov-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;align-items:start}
+.ov-cell{padding:0}
+.ov-lbl{font-size:0.52rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(196,160,82,0.7);margin-bottom:20px}
+.ov-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,2.8vw,3.2rem);font-weight:300;
+  color:var(--white);line-height:1;
+}
+.ov-sub{font-size:0.64rem;color:rgba(221,208,188,0.65);display:block;margin-top:10px;letter-spacing:0.04em;font-style:italic}
+.ov-title{display:none}
+
+/* ── CTA — image as full protagonist ── */
+.sec-cta{
+  position:relative;min-height:100vh;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;
+  margin:0;
+}
+/* image half */
+.cta-img{
+  position:relative;overflow:hidden;
+}
+.cta-img img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:brightness(1.05) saturate(1.05);
+  display:block;
+}
+.cta-img-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(to right, transparent 20%, rgba(15,14,12,0.15) 45%, rgba(15,14,12,0.75) 72%, rgba(15,14,12,1) 88%);
+}
+/* text half */
+.cta-text{
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  padding:80px 72px;
+}
+.sec-cta.in-view .cta-text{opacity:1;transform:translateX(0)}
+.cta-inner{max-width:380px}
+.cta-ey{
+  font-size:0.44rem;letter-spacing:0.44em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px;
+  opacity:0;transform:translateY(10px);
+  transition:opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s;
+}
+.sec-cta.in-view .cta-ey{opacity:1;transform:translateY(0)}
+.cta-ey-line{width:16px;height:1px;background:var(--gold)}
+.cta-title{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,4vw,5rem);
+  font-weight:300;color:var(--white);line-height:0.9;margin-bottom:24px;
+  opacity:0;transform:translateY(14px);
+  transition:opacity 1s ease 0.4s, transform 1s ease 0.4s;
+}
+.sec-cta.in-view .cta-title{opacity:1;transform:translateY(0)}
+.cta-title em{font-style:italic;color:var(--sand);display:block}
+.cta-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.6rem,2.2vw,2.4rem);font-weight:300;
+  color:var(--gold);letter-spacing:0.04em;
+  margin-bottom:8px;
+  opacity:0;
+  transition:opacity 1.4s ease 1.4s;
+}
+.sec-cta.in-view .cta-price{opacity:1}
+.cta-price-note{
+  font-size:0.46rem;letter-spacing:0.22em;color:rgba(196,160,82,0.5);
+  text-transform:uppercase;margin-bottom:40px;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease 0.9s;
+}
+.sec-cta.in-view .cta-price-note{opacity:1}
+.cta-rule{
+  width:0;height:1px;background:rgba(196,160,82,0.25);margin-bottom:32px;
+  transition:width 0.8s ease 1s;
+}
+.sec-cta.in-view .cta-rule{width:22px}
+.cta-sub{
+  font-size:0.68rem;color:rgba(250,247,242,0.5);margin-bottom:36px;
+  font-style:italic;letter-spacing:0.04em;line-height:1.9;
+  opacity:0;
+  transition:opacity 0.9s ease 1.1s;
+}
+.sec-cta.in-view .cta-sub{opacity:1}
+.cta-btn{
+  display:block;width:100%;
+  background:var(--gold);border:none;color:var(--ink);
+  font-family:'Jost',sans-serif;font-size:0.54rem;letter-spacing:0.34em;text-transform:uppercase;
+  padding:20px 0;text-decoration:none;text-align:center;
+  transition:all 0.4s ease;cursor:pointer;margin-bottom:14px;
+  opacity:0;transform:translateY(8px);
+  transition:background 0.4s ease, opacity 0.8s ease 1.3s, transform 0.8s ease 1.3s;
+}
+.sec-cta.in-view .cta-btn{opacity:1;transform:translateY(0)}
+.cta-btn:hover{background:var(--sand)}
+.cta-sec{font-size:0.46rem;letter-spacing:0.2em;color:rgba(176,151,126,0.4);text-decoration:none;transition:color 0.3s;display:block;text-align:center}
+.cta-sec:hover{color:var(--dune)}
+@media(max-width:768px){
+  .sec-cta{grid-template-columns:1fr;min-height:auto}
+  .cta-img{height:70vw}
+  .cta-img-veil{background:linear-gradient(to bottom, transparent 20%, rgba(15,14,12,0.6) 65%, rgba(15,14,12,1) 100%) !important;}
+  .cta-text{padding:48px 28px;background:var(--ink)}
+  .cta-inner{max-width:100%}
+}
+
+/* divider */
+.gd{height:1px;background:linear-gradient(to right,transparent,rgba(196,160,82,0.1),transparent)}
+
+/* ══ MOBILE ══ */
+@media(max-width:768px){
+  #sidenav{display:none}
+                      .sec-atmo{height:100svh}
+  .atmo-content{padding:0 26px;max-width:100%;text-align:left;transform:translateX(-18px)}
+  .sec-atmo.in-view .atmo-content{transform:translateX(0)}
+  .atmo-num,.atmo-title{text-align:left}
+  .atmo-rule,.atmo-tail{margin-left:0}
+  .atmo-text{text-align:left}
+  .atmo-label-row{flex-direction:row}
+  .sec-atmo{justify-content:flex-start}
+  .atmo-veil{background:linear-gradient(to right,rgba(10,9,8,0.82) 0%,rgba(10,9,8,0.2) 50%,transparent 75%)}
+  .atmo-toggle{bottom:20px}
+  .atmo-tog-btn{padding:10px 16px;font-size:0.42rem}
+  .sec-pause{padding:72px 28px;min-height:auto}
+  .sec-overview{padding:56px 28px;min-height:auto}
+  .ov-eyebrow{margin-bottom:40px}
+  .ov-grid{
+    display:flex;flex-direction:column;gap:0;
+    border-top:1px solid rgba(196,160,82,0.25);
+    width:100%;
+  }
+  .ov-cell{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    padding:28px 0;
+    border-bottom:1px solid rgba(196,160,82,0.25);
+    width:100%;
+  }
+  .ov-lbl{font-size:0.52rem;margin-bottom:0;letter-spacing:0.22em;color:rgba(196,160,82,0.9)}
+  .ov-val{font-size:clamp(1.6rem,6vw,2.2rem);text-align:right;line-height:1.1;color:var(--white)}
+  .ov-sub{font-size:0.72rem;text-align:right;margin-top:6px;color:rgba(221,208,188,0.8)}
+  .ov-cell{padding:20px 14px}
+  .ov-val{font-size:1.35rem}
+  .ov-cell:last-child:nth-child(odd){grid-column:1/-1}
+  .cta-img-wrap{width:100%}
+  .cta-panel{flex-direction:column;padding:48px 24px;gap:32px;text-align:center}
+  .cta-panel-right{text-align:center}
+  .cta-ey{justify-content:center}
+  .cta-title{font-size:clamp(2.6rem,9vw,3.5rem)}
+  .cta-btn{padding:15px 32px}
+  .op-content{padding:0 28px 56px}
+  .op-title{font-size:clamp(2rem,7vw,3.2rem);margin-bottom:40px}
+}
+
+/* Performance optimizations */
+.sa-bg,.atmo-slide{will-change:transform}
+img{content-visibility:auto}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  "name": "6 Harding Terrace",
+  "description": "Luxury new-construction residence in Sag Harbor, NY. 4,200 sq ft, 4 bedrooms, 3.5 baths.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "6 Harding Terrace",
+    "addressLocality": "Sag Harbor",
+    "addressRegion": "NY"
+  },
+  "numberOfRooms": 4,
+  "numberOfBathroomsTotal": 3.5,
+  "floorSize": {
+    "@type": "QuantitativeValue",
+    "value": 4200,
+    "unitCode": "FTK"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- OPENING -->
+<div id="opening">
+  <div class="op-bg" style="background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_CAMDRON-2.jpg')"></div>
+  <div class="op-vignette"></div>
+  <div class="op-content">
+    <div class="op-eyebrow">Exclusively Offered · Sag Harbor, NY</div>
+    <h1 class="op-title">Where the East End<br>meets its finest hour</h1>
+    <button class="enter-btn" id="enterBtn">
+      View the Residence
+      <svg width="20" height="10" viewBox="0 0 20 10" fill="none"><path d="M1 5h18M14 1l5 4-5 4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+<div id="veil"></div>
+<nav id="sidenav" aria-label="Page navigation"><div id="navDots"></div></nav>
+<div class="scroll-hint" id="scrollHint">
+  <span>Scroll to explore</span>
+  <svg width="10" height="14" viewBox="0 0 10 14" fill="none"><path d="M5 1v10M1 7l4 4 4-4" stroke="#b0977e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.28"/></svg>
+</div>
+
+<div id="main-content">
+
+  <!-- ══ ATMOSPHERE EXTERIOR SECTION ══ -->
+  <section class="sec-atmo" id="s0" data-section="0" data-label="Exterior">
+    <!-- 3 crossfading slides -->
+    <div class="atmo-slide day active" id="slide-day" style="background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/FACADE_169_DAY.jpg');background-position:center center"></div>
+    <div class="atmo-slide day-mobile" id="slide-day-mobile" style="background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_CAM05-3.jpg');background-position:center top"></div>
+
+    <div class="atmo-slide evening" id="slide-evening" style="background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/FACADE_169_BLUEHOUR.jpg');background-position:center center"></div>
+    <div class="atmo-slide evening-mobile" style="background-image:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_CAM13-2.jpg');background-position:center"></div>
+    <div class="atmo-veil"></div>
+    <div class="atmo-content">
+      <span class="atmo-num">01</span>
+      <div class="atmo-label-row"><div class="atmo-label-line"></div>Exterior</div>
+      <h2 class="atmo-title">The<br><em>Facade</em></h2>
+      <div class="atmo-rule"></div>
+      <p class="atmo-text">Sag Harbor, New York. A new residence conceived for the way people actually live on the East End — with intention, with ease, and with beauty that holds across every hour of the day.</p>
+      <div class="atmo-tail"></div>
+    </div>
+    <div class="atmo-cap" id="atmoCap">Day · Natural Light</div>
+    <div class="atmo-toggle">
+      <button class="atmo-tog-btn active" data-mode="day">Day</button>
+      <button class="atmo-tog-btn" data-mode="evening">Evening</button>
+    </div>
+  </section>
+  <div class="gd"></div>
+
+  <!-- EXTERIOR SCENES -->
+  <section class="sec-scene" id="s0b" data-section="0" data-label="Garden">
+    <div class="scene-img">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_CAM05-3.jpg" alt="The Garden" loading="lazy">
+    </div>
+    <div class="scene-text">
+      <div class="scene-inner">
+        <span class="scene-num">01</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Grounds · Garden</div>
+        <h2 class="scene-title">The<br><em>Garden</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">Mature oaks, native grasses, open lawn. The grounds were conceived as a natural extension of the interior — a place to be in, not just to look at. Steps from the water, and designed to belong to this landscape entirely.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-scene reverse" id="s0c" data-section="0" data-label="Pool">
+    <div class="scene-img">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_CAM13-2.jpg" alt="Outdoor Living" loading="lazy">
+    </div>
+    <div class="scene-text">
+      <div class="scene-inner">
+        <span class="scene-num">02</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Outdoor · Living</div>
+        <h2 class="scene-title">Pool &<br><em>Terrace</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">A generous outdoor living room anchored by a heated pool and open terrace. Designed for the long Hamptons summer — for morning swims, afternoon shade, and evenings that stretch well past dark.</p>
+      </div>
+    </div>
+  </section>
+  <div class="gd"></div>
+
+  <!-- PAUSE 1 -->
+  <section class="sec-pause pause-living" id="s1" data-section="1" data-label="">
+    <div class="sp-inner">
+      <div class="sp-rule"></div>
+      <div class="sp-label">6 Harding Terrace · Sag Harbor</div>
+      <h2 class="sp-title">Built for<br><em>a life well-lived</em></h2>
+      <p class="sp-text">Every room was designed around a single question — how does this space feel to inhabit? Not to photograph, not to impress. To live in, season after season, on the East End of Long Island.</p>
+      <div class="sp-rule2"></div>
+    </div>
+  </section>
+  <div class="gd"></div>
+
+  <!-- GALLERY GRID -->
+  <section class="sec-scene" id="s2" data-section="2" data-label="Entry">
+    <div class="scene-img">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_CAM14-3.jpg" alt="Entry" loading="lazy">
+    </div>
+    <div class="scene-text">
+      <div class="scene-inner">
+        <span class="scene-num">03</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Entry</div>
+        <h2 class="scene-title">Arrival<br><em>Sequence</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">A covered pergola walkway flanked by native grasses and climbing vines. The approach is deliberate — a transition from street to sanctuary, from pace to stillness.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-scene reverse" id="s3" data-section="3" data-label="Living">
+    <div class="scene-img">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM05-2.jpg" alt="Living Room" loading="lazy">
+    </div>
+    <div class="scene-text">
+      <div class="scene-inner">
+        <span class="scene-num">04</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Living Room</div>
+        <h2 class="scene-title">Great<br><em>Room</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">Vaulted white oak ceiling, linear fireplace, floor-to-ceiling glass folding open to the garden. Generous in scale, warm in material, forgiving of real life.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-dual" id="s4" data-section="4" data-label="Kitchen">
+    <div class="dual-img-main">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM06-1.jpg" alt="Kitchen" loading="lazy">
+    </div>
+    <div class="dual-img-small">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM09-2.jpg" alt="Kitchen detail" loading="lazy">
+    </div>
+    <div class="dual-text">
+      <div class="dual-inner">
+        <span class="scene-num">05</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Kitchen</div>
+        <h2 class="scene-title">Chef's<br><em>Kitchen</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">Custom white oak cabinetry, honed stone island, brass pendants and a six-burner range. Scaled for serious cooking and effortless entertaining.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-scene reverse" id="s5" data-section="5" data-label="Dining">
+    <div class="scene-img">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM07-2.jpg" alt="Dining" loading="lazy">
+    </div>
+    <div class="scene-text">
+      <div class="scene-inner">
+        <span class="scene-num">06</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Dining</div>
+        <h2 class="scene-title">The Dining<br><em>Room</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">A round oak table beneath a sculptural pendant, framed by floor-to-ceiling glass on two sides. Garden views at every meal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAUSE 2 -->
+  <section class="sec-pause pause-suite" id="s6" data-section="6" data-label="">
+    <div class="sp-inner">
+      <div class="sp-rule"></div>
+      <div class="sp-label">Upper Level</div>
+      <h2 class="sp-title">Five private<br><em>retreats</em></h2>
+      <p class="sp-text">Each bedroom was designed with the same intention as the primary — calm, considered, with its own relationship to light and garden. The kind of spaces that make guests reluctant to leave.</p>
+      <div class="sp-rule2"></div>
+    </div>
+  </section>
+  <div class="gd"></div>
+
+  <!-- UPPER GALLERY -->
+  <section class="sec-scene" id="s7" data-section="7" data-label="Suite">
+    <div class="scene-img">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM04-2.jpg" alt="Primary Suite" loading="lazy">
+    </div>
+    <div class="scene-text">
+      <div class="scene-inner">
+        <span class="scene-num">07</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Primary Suite</div>
+        <h2 class="scene-title">A Private<br><em>Sanctuary</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">Four-poster bed, vaulted ceiling, morning light from the east. The bath is carved entirely from stone and Venetian plaster — a room where time moves at its own pace.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-dual" id="s8" data-section="8" data-label="Upper Hall">
+    <div class="dual-img-main">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM011-2.jpg" alt="Upper Hall" loading="lazy">
+    </div>
+    <div class="dual-img-small">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM015-1.jpg" alt="Upper Hall" loading="lazy">
+    </div>
+    <div class="dual-text">
+      <div class="dual-inner">
+        <span class="scene-num">08</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Upper Hall</div>
+        <h2 class="scene-title">Light &amp;<br><em>Volume</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">A sky-lit landing with glass balustrade opens to the floor below. Lined in white oak millwork and flooded with natural light — one of those architectural moments only understood from standing in it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-scene reverse" id="s10b" data-section="10" data-label="Lounge">
+    <div class="scene-img">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM02-3.jpg" alt="Basement Lounge" loading="lazy">
+    </div>
+    <div class="scene-text">
+      <div class="scene-inner">
+        <span class="scene-num">09</span>
+        <div class="scene-label"><div class="scene-label-line"></div>Basement Lounge</div>
+        <h2 class="scene-title">The<br><em>Lounge</em></h2>
+        <div class="scene-rule"></div>
+        <p class="scene-text-body">Coffered ceiling, built-in oak cabinetry, deep seating. A space designed for long evenings — film, conversation, the quiet end of a Hamptons day.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="gd"></div>
+
+  <!-- SILENCE -->
+  <section class="sec-silence" id="s-silence" data-section="12" data-label="">
+    <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM05-2.jpg" alt="Great Room" loading="lazy">
+    <div class="silence-coords">40°59'47"N &nbsp;·&nbsp; 72°17'52"W</div>
+  </section>
+  <div class="gd"></div>
+
+  <!-- 360 TOUR -->
+  <section class="sec-360" id="s-360" data-section="13" data-label="360° Tour">
+    <div class="sec-360-bg"></div>
+    <div class="sec-360-veil"></div>
+    <div class="sec-360-content">
+      <div class="sec-360-label"><div class="sec-360-label-line"></div>Virtual Experience<div class="sec-360-label-line"></div></div>
+      <h2 class="sec-360-title">Walk the<br><em>Property</em></h2>
+      <button id="btn-360" class="sec-360-btn">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        Explore in 360°
+      </button>
+      <p class="sec-360-note">Interactive tour · Available now</p>
+    </div>
+  </section>
+  <div class="gd"></div>
+
+  <!-- OVERVIEW -->
+  <section class="sec-overview" id="s10" data-section="10" data-label="Overview">
+    <div class="ov-inner">
+      <div class="ov-eyebrow">Specifications</div>
+      <h2 class="ov-title">Project Overview</h2>
+      <div class="ov-grid">
+        <div class="ov-cell"><div class="ov-lbl">Location</div><div class="ov-val" style="font-size:1.2rem">6 Harding Terrace<span class="ov-sub">Sag Harbor, NY</span></div></div>
+        <div class="ov-cell"><div class="ov-lbl">Interior Area</div><div class="ov-val">4,400<span class="ov-sub">sq ft · above grade</span></div></div>
+        <div class="ov-cell"><div class="ov-lbl">Bedrooms / Baths</div><div class="ov-val">5 bd<span class="ov-sub">5.5 bathrooms</span></div></div>
+        <div class="ov-cell"><div class="ov-lbl">Amenities</div><div class="ov-val" style="font-size:1.1rem">Garage<span class="ov-sub">Swimming Pool · Beach Access</span></div></div>
+        <div class="ov-cell"><div class="ov-lbl">Architect</div><div class="ov-val" style="font-size:1.4rem">RRL<span class="ov-sub">Design & Architecture</span></div></div>
+        <div class="ov-cell"><div class="ov-lbl">Est. Completion</div><div class="ov-val">Q3<span class="ov-sub">2026</span></div></div>
+      </div>
+    </div>
+  </section>
+  <div class="gd"></div>
+
+  <!-- CTA — image full protagonist -->
+  <section class="sec-cta" id="s11" data-section="11" data-label="Visit">
+    <div class="cta-img">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_CAM06-2.jpg" alt="6 Harding Terrace" loading="lazy">
+      <div class="cta-img-veil"></div>
+    </div>
+    <div class="cta-text">
+      <div class="cta-inner">
+        <div class="cta-ey"><div class="cta-ey-line"></div>Exclusively Available</div>
+        <h2 class="cta-title">6 Harding<br><em>Terrace</em></h2>
+        <div class="cta-price">$5,500,000</div>
+        <span class="cta-price-note">Sag Harbor, New York · Est. Completion Q3 2026</span>
+        <div class="cta-rule"></div>
+        <p class="cta-sub">5 bedrooms · 5.5 baths · 4,400 sq ft<br>Now accepting inquiries · Est. completion Q3 2026</p>
+        <a href="https://wa.me/543518822187?text=Hello%2C%20I%20am%20interested%20in%206%20Harding%20Terrace%2C%20Sag%20Harbor.%20I%20would%20like%20to%20request%20a%20private%20preview." target="_blank" class="cta-btn">Request a Private Preview</a>
+        <a href="https://wa.me/543518822187?text=Hello%2C%20I%20would%20like%20to%20request%20the%20full%20specifications%20for%206%20Harding%20Terrace%2C%20Sag%20Harbor." target="_blank" class="cta-sec">Request Full Specifications</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- LIGHTBOX IMG -->
+<div id="lightbox-img">
+  <button id="lightbox-img-close">✕</button>
+  <img id="lightbox-img-el" src="" alt="">
+</div>
+
+<!-- LIGHTBOX 360 -->
+<div id="lightbox-360">
+  <button id="lightbox-close">✕ &nbsp;Cerrar</button>
+  <iframe
+    src="https://kuula.co/share/collection/7ZVRL?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
+    frameborder="0"
+    allow="xr-spatial-tracking; gyroscope; accelerometer"
+    allowfullscreen
+    scrolling="no">
+  </iframe>
+</div>
+
+<script>
+document.getElementById('enterBtn').addEventListener('click',()=>{
+  const veil=document.getElementById('veil');
+  const opening=document.getElementById('opening');
+  const nav=document.getElementById('sidenav');
+  const content=document.getElementById('main-content');
+  const hint=document.getElementById('scrollHint');
+  veil.classList.add('show');
+  setTimeout(()=>{
+    opening.classList.add('exit');
+    setTimeout(()=>{
+      opening.style.display='none';
+      document.body.style.overflow='auto';
+      nav.classList.add('visible');
+      content.classList.add('visible');
+      veil.classList.remove('show');
+      setTimeout(()=>{hint.classList.add('visible');},800);
+      setTimeout(()=>{hint.classList.remove('visible');},4800);
+    },300);
+  },540);
+});
+
+// DOTS
+const sections=document.querySelectorAll('[data-section]');
+const dotsWrap=document.getElementById('navDots');
+const dotMap={};
+sections.forEach((s,i)=>{
+  const label=s.dataset.label;
+  if(!label)return;
+  const dot=document.createElement('button');
+  dot.className='nav-dot';dot.setAttribute('aria-label','Go to '+label);
+  dot.innerHTML=`<span class="nav-dot-tip">${label}</span>`;
+  dot.addEventListener('click',()=>s.scrollIntoView({behavior:'smooth'}));
+  dotsWrap.appendChild(dot);
+  dotMap[i]=dot;
+});
+
+// OBSERVER
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const idx=parseInt(entry.target.dataset.section);
+      entry.target.classList.add('in-view');
+      document.querySelectorAll('.nav-dot').forEach(d=>d.classList.remove('active'));
+      if(dotMap[idx])dotMap[idx].classList.add('active');
+    }
+  });
+},{threshold:0.38});
+sections.forEach(s=>observer.observe(s));
+
+// ATMOSPHERE — auto-cycle + pause on click
+const atmoModes=['day','evening'];
+const atmoCaptions={day:'Day · Natural Light',evening:'Blue Hour · Dusk'};
+let atmoIdx=0, atmoPaused=false, atmoPauseTimer=null, atmoCycleTimer=null;
+
+function showAtmo(mode,fromUser){
+  atmoIdx=atmoModes.indexOf(mode);
+  document.querySelectorAll('.atmo-tog-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.atmo-tog-btn[data-mode="'+mode+'"]')?.classList.add('active');
+  document.querySelectorAll('.atmo-slide').forEach(s=>s.classList.remove('active'));
+  document.getElementById('slide-'+mode).classList.add('active');
+  document.getElementById('atmoCap').textContent=atmoCaptions[mode];
+  if(fromUser){
+    clearTimeout(atmoPauseTimer); clearInterval(atmoCycleTimer);
+    atmoPauseTimer=setTimeout(()=>{ startCycle(); }, 5000);
+  }
+}
+function nextAtmo(){ atmoIdx=(atmoIdx+1)%atmoModes.length; showAtmo(atmoModes[atmoIdx],false); }
+function startCycle(){ clearInterval(atmoCycleTimer); atmoCycleTimer=setInterval(nextAtmo,3800); }
+
+document.querySelectorAll('.atmo-tog-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>showAtmo(btn.dataset.mode,true));
+});
+
+let atmoStarted=false;
+const atmoSection=document.getElementById('s0');
+const atmoObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting&&!atmoStarted){ atmoStarted=true; setTimeout(startCycle,1200); }
+    if(!entry.isIntersecting){ clearInterval(atmoCycleTimer); atmoStarted=false; }
+  });
+},{threshold:0.5});
+atmoObserver.observe(atmoSection);
+
+// HOTSPOT MOBILE
+document.querySelectorAll('.hotspot').forEach(hs=>{
+  hs.addEventListener('click',e=>{
+    if(window.innerWidth<=768){
+      e.stopPropagation();
+      const open=hs.classList.contains('tapped');
+      document.querySelectorAll('.hotspot').forEach(h=>h.classList.remove('tapped'));
+      if(!open)hs.classList.add('tapped');
+    }
+  });
+});
+document.addEventListener('click',()=>{
+  document.querySelectorAll('.hotspot').forEach(h=>h.classList.remove('tapped'));
+});
+
+// PARALLAX
+if(window.innerWidth>768){
+  window.addEventListener('scroll',()=>{
+    document.querySelectorAll('.sa-bg-col .sa-bg, .atmo-slide').forEach(bg=>{
+      if(!sec)return;
+      const rect=sec.getBoundingClientRect();
+      const off=rect.top/window.innerHeight;
+      bg.style.transform=`translateY(${off*14}px) scale(1.04)`;
+    });
+  },{passive:true});
+}
+
+// PRICE COUNTER removed — using CSS blur fade
+(function(){
+  const lb = document.getElementById('lightbox-img');
+  const lbImg = document.getElementById('lightbox-img-el');
+  const lbClose = document.getElementById('lightbox-img-close');
+
+  function openImg(src, alt){
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeImg(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Only on mobile
+  if(window.innerWidth <= 768){
+    document.querySelectorAll('.sec-scene .scene-img img, .dual-img-main img, .dual-img-small img').forEach(img=>{
+      img.addEventListener('click', function(){
+        openImg(this.src, this.alt);
+      });
+    });
+  }
+
+  lbClose.addEventListener('click', closeImg);
+  lb.addEventListener('click', function(e){ if(e.target === this) closeImg(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeImg(); });
+
+  // Swipe down to close
+  let startY = 0;
+  lb.addEventListener('touchstart', e=>{ startY = e.touches[0].clientY; }, {passive:true});
+  lb.addEventListener('touchend', e=>{
+    if(e.changedTouches[0].clientY - startY > 80) closeImg();
+  }, {passive:true});
+})();
+
+// LIGHTBOX 360
+(function(){
+  const lb = document.getElementById('lightbox-360');
+  const btnOpen = document.getElementById('btn-360');
+  const btnClose = document.getElementById('lightbox-close');
+
+  if(btnOpen) btnOpen.addEventListener('click', function(e){
+    e.preventDefault();
+    lb.classList.add('open');
+  });
+  if(btnClose) btnClose.addEventListener('click', function(){
+    lb.classList.remove('open');
+  });
+  if(lb) lb.addEventListener('click', function(e){
+    if(e.target === this) this.classList.remove('open');
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape' && lb) lb.classList.remove('open');
+  });
+})();
+
+</script>
+
+</body>
+</html>
