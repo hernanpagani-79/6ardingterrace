@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitchen Reveal v2</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0f0e0c; color:#faf7f2; font-family:'Georgia',serif; overflow-x:hidden; }
+
+  #before {
+    height: 40vh; background:#1a1815;
+    display:flex; align-items:center; justify-content:center;
+  }
+  #before p { color:rgba(255,255,255,0.2); font-style:italic; letter-spacing:0.1em; }
+
+  #reveal-wrap { position:relative; height:300vh; }
+
+  #reveal-sticky {
+    position:sticky; top:0; height:100vh; overflow:hidden;
+  }
+
+  #kitchen-layer {
+    position:absolute; inset:0; z-index:1;
+  }
+  #kitchen-layer img {
+    width:100%; height:110%; object-fit:cover; margin-top:-5%;
+  }
+  #kitchen-layer::after {
+    content:''; position:absolute; inset:0;
+    background:rgba(15,14,12,0.15);
+  }
+
+  #greatroom-layer {
+    position:absolute; inset:0; z-index:2;
+    clip-path:inset(0 0 0% 0);
+    will-change:clip-path;
+  }
+  #greatroom-layer img { width:100%; height:100%; object-fit:cover; }
+  #greatroom-layer::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to bottom, rgba(15,14,12,0.1) 0%, rgba(15,14,12,0.0) 40%, rgba(15,14,12,0.5) 75%, rgba(15,14,12,0.85) 100%);
+  }
+
+  #greatroom-text {
+    position:absolute; bottom:0; left:0; right:0; z-index:3;
+    padding:0 32px 52px; will-change:transform;
+  }
+  .eyebrow {
+    font-family:sans-serif; font-size:0.5rem; letter-spacing:0.3em;
+    text-transform:uppercase; color:rgba(196,160,82,0.8);
+    display:block; margin-bottom:12px;
+  }
+  .room-title { font-size:clamp(2.2rem,9vw,4rem); font-weight:300; line-height:1.05; margin-bottom:16px; }
+  .room-title em { font-style:italic; color:rgba(255,255,255,0.5); }
+  .room-body {
+    font-family:sans-serif; font-size:0.78rem; font-weight:300;
+    line-height:1.9; color:rgba(255,255,255,0.5); max-width:300px;
+  }
+
+  #kitchen-text {
+    position:absolute; bottom:0; left:0; right:0; z-index:4;
+    padding:0 32px 52px;
+    opacity:0; transform:translateY(20px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  #kitchen-text.visible { opacity:1; transform:translateY(0); }
+
+  #after {
+    height:60vh; background:#0f0e0c;
+    display:flex; align-items:center; justify-content:center;
+  }
+  #after p { color:rgba(255,255,255,0.2); font-style:italic; }
+</style>
+</head>
+<body>
+
+<section id="before"><p>Previous section</p></section>
+
+<div id="reveal-wrap">
+  <div id="reveal-sticky">
+
+    <div id="kitchen-layer">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM06-1.jpg" alt="Kitchen">
+    </div>
+
+    <div id="greatroom-layer">
+      <img src="https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM05-2.jpg" alt="Great Room">
+    </div>
+
+    <div id="greatroom-text">
+      <span class="eyebrow">— Living Room</span>
+      <h2 class="room-title">Great<br><em>Room</em></h2>
+      <p class="room-body">The room that earns the house. Vaulted white oak overhead, glass that folds entirely open to the garden.</p>
+    </div>
+
+    <div id="kitchen-text">
+      <span class="eyebrow">— Kitchen</span>
+      <h2 class="room-title">Chef's<br><em>Kitchen</em></h2>
+      <p class="room-body">White oak cabinetry, honed stone island, brass pendants. A six-burner range for the cook who means it.</p>
+    </div>
+
+  </div>
+</div>
+
+<section id="after"><p>Next section</p></section>
+
+<script>
+const wrap        = document.getElementById('reveal-wrap');
+const greatLayer  = document.getElementById('greatroom-layer');
+const greatText   = document.getElementById('greatroom-text');
+const kitchenText = document.getElementById('kitchen-text');
+const kitchenImg  = document.querySelector('#kitchen-layer img');
+let ticking = false;
+
+function tick(){
+  const wh       = window.innerHeight;
+  const rect     = wrap.getBoundingClientRect();
+  const progress = Math.max(0, Math.min(1, -rect.top / (wrap.offsetHeight - wh)));
+
+  // Clip great room from bottom upward — reveals kitchen underneath
+  greatLayer.style.clipPath = `inset(0 0 ${progress * 100}% 0)`;
+
+  // Text exits faster than the clip
+  greatText.style.transform = `translateY(-${progress * wh * 1.4}px)`;
+
+  // Kitchen text appears at 60%
+  kitchenText.classList.toggle('visible', progress > 0.6);
+
+  // Subtle parallax on kitchen bg
+  kitchenImg.style.transform = `translateY(${progress * 8}%)`;
+
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if(!ticking){ requestAnimationFrame(tick); ticking = true; }
+}, {passive:true});
+tick();
+</script>
+</body>
+</html>
