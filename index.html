@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitchen Reveal v4</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f0e0c;
+    --gold:#c4a052;
+    --sand:#ddd0bc;
+    --white:#faf7f2;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--ink); color:var(--white); overflow-x:hidden; }
+
+  /* ── GREAT ROOM — normal section ── */
+  #great-room {
+    position:relative;
+    height:100vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  #great-room .bg {
+    position:absolute; inset:0; z-index:0;
+    background:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM05-2.jpg') center/cover no-repeat;
+  }
+  #great-room .bg::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to bottom, transparent 40%, rgba(15,14,12,0.85) 100%);
+  }
+  #great-room .content {
+    position:relative; z-index:1;
+    padding:0 32px 52px;
+  }
+  .scene-num {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(3rem,14vw,6rem);
+    opacity:0.18; line-height:1; display:block;
+  }
+  .scene-label {
+    font-family:'Jost',sans-serif;
+    font-size:0.38rem; letter-spacing:0.22em;
+    text-transform:uppercase; color:var(--gold);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:8px;
+  }
+  .scene-label-line { width:24px; height:1px; background:var(--gold); opacity:0.5; }
+  .scene-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2rem,8vw,3.5rem);
+    font-weight:300; line-height:1.05; margin-bottom:16px;
+  }
+  .scene-title em { font-style:italic; color:rgba(255,255,255,0.45); }
+  .scene-body {
+    font-family:'Jost',sans-serif;
+    font-size:0.75rem; font-weight:300;
+    line-height:1.9; color:rgba(255,255,255,0.5);
+    max-width:300px;
+  }
+
+  /* ── KITCHEN — fixed background reveals as Great Room scrolls away ── */
+  #kitchen {
+    position:relative;
+    height:100vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  #kitchen .bg {
+    position:absolute; inset:0; z-index:0;
+    background:url('https://raw.githubusercontent.com/hernanpagani-79/6ardingterrace/main/6-Harding_INTCAM06-1.jpg') center/cover no-repeat;
+    background-attachment:fixed; /* THE KEY — stays fixed while great room slides away */
+  }
+  #kitchen .bg::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to bottom, transparent 40%, rgba(15,14,12,0.85) 100%);
+  }
+  #kitchen .content {
+    position:relative; z-index:1;
+    padding:0 32px 52px;
+  }
+
+  /* ── AFTER ── */
+  #after {
+    height:60vh; background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+  }
+  #after p { color:rgba(255,255,255,0.2); font-style:italic; font-family:'Cormorant Garamond',serif; }
+</style>
+</head>
+<body>
+
+<!-- Simulates previous section -->
+<div style="height:40vh;background:#1a1815;display:flex;align-items:center;justify-content:center">
+  <p style="color:rgba(255,255,255,0.2);font-style:italic;font-family:Georgia,serif">Previous section</p>
+</div>
+
+<!-- Great Room -->
+<section id="great-room">
+  <div class="bg"></div>
+  <div class="content">
+    <span class="scene-num">04</span>
+    <div class="scene-label"><div class="scene-label-line"></div>Living Room</div>
+    <h2 class="scene-title">Great<br><em>Room</em></h2>
+    <div style="width:32px;height:1px;background:rgba(196,160,82,0.3);margin-bottom:16px"></div>
+    <p class="scene-body">The room that earns the house. Vaulted white oak overhead, glass that folds entirely open to the garden, a fireplace that makes October worth having.</p>
+  </div>
+</section>
+
+<!-- Kitchen — fixed bg appears from behind as Great Room scrolls up -->
+<section id="kitchen">
+  <div class="bg"></div>
+  <div class="content">
+    <span class="scene-num">05</span>
+    <div class="scene-label"><div class="scene-label-line"></div>Kitchen</div>
+    <h2 class="scene-title">Chef's<br><em>Kitchen</em></h2>
+    <div style="width:32px;height:1px;background:rgba(196,160,82,0.3);margin-bottom:16px"></div>
+    <p class="scene-body">White oak cabinetry, honed stone island, brass pendants. A six-burner range for the cook who means it.</p>
+  </div>
+</section>
+
+<section id="after"><p>Next section</p></section>
+
+</body>
+</html>
